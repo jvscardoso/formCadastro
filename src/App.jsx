@@ -48,6 +48,7 @@ function App() {
     })
   }
 
+  //constante do formulario
   const myForm = useForm({
     mode: "all"
   });
@@ -98,11 +99,13 @@ function App() {
     }
   } 
 
+  //validação do link da API
   async function validarLink (){
     const response = await axios.get (baseURL)
     const header = response.headers
   }
 
+  //hook para resetar o dado do formulario
   useEffect(() => {
     myForm.reset(data);
   }, [myForm, data]);
@@ -125,12 +128,15 @@ function App() {
     }
   }
 
+  //hook para pegar os dados do usuario atraves do token
+  useEffect(() => {
+    getDados(token);
+  }, [])
+
   //constantes para validação do token
   const urlSearchParams = new URLSearchParams(window.location.search);
   const params = Object.fromEntries(urlSearchParams.entries());
   const {token} = params
-  const dados = getDados(token) 
-  getDados(token)
   validarLink()
 
   return (
