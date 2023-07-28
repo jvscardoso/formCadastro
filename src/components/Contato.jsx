@@ -1,20 +1,8 @@
 import React, { useState } from 'react';
 import { useForm, Controller, useFormContext } from 'react-hook-form';
+import AvatarUpload from './AvatarUpload';
 
 const Contato = () => {
-  const [previewImage, setPreviewImage] = useState(null);
-
-  const handlePhotoChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const {
     control,
     formState: { errors }
@@ -24,19 +12,10 @@ const Contato = () => {
     <>
       <div>
         <label>Foto de Perfil</label>
-        <Controller
-            name="photo"
-            control={control}
-            render={({ field }) => (
-                <>
-                <input {...field} type="file" accept="image/*" onChange={handlePhotoChange} />
-                {previewImage && <img src={previewImage} alt="Preview" style={{ width: '100px', height: '100px' }} />}
-                </>
-            )}
-        />
+          <AvatarUpload />
       </div>
 
-      <div className = "form-control">
+      <div className = "form-control" style={{ marginTop: '1rem' }} >
         <label>Número de Telefone</label>
         <Controller
           name="telefones.tele_nr_telefone"
