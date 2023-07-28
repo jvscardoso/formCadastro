@@ -1,15 +1,21 @@
 //Componentes
 import React, { useState, useEffect } from 'react'
 import './App.css'
-import {FiSend} from 'react-icons/fi'
+import axios from 'axios'
+
+//steps
 import DadosUsuarios  from "./components/DadosUsuarios"
 import Contato  from "./components/Contato"
 import Confirmacao  from "./components/Confirmacao"
 import Welcome from './components/Welcome'
 import Steps from './components/Steps'
 import UserAddress from './components/UserAddress'
-import axios from 'axios'
+
+//icone
 import Logo from './images/logo.png'
+
+//icons
+import {FiSend} from 'react-icons/fi'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
